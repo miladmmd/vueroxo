@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./scripts/vue.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<div class="wrapper">
+    <div id="app">
+        <div class="app">
+            <!--        <button type="button" @click="changeLink">ویرایش لینک</button>-->
+            <!--        <a :href="link">{{linkTitle}}</a>-->
+        </div>
+
+        <div class="demo" :class="divClasses" @click="attachRed = !attachRed"></div>
+        <div class="demo"></div>
+        <div class="demo" :class="[color,{blue:attachRed}]"></div>
+        <input type="text" v-model="color">
+        <hr>
+        <h1>Dynamic Styles</h1>
+        <div class="demo" :style="{backgroundColor: bgColor}"></div>
+        <div class="demo" :style="divStyles"></div>
+        <div class="demo" :style="[divStyles,{height:width + 'px'}]"></div>
+        <input type="text" v-model="bgColor">
+        <input type="text" v-model="width">
+    </div>
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>

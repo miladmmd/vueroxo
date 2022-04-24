@@ -1,0 +1,21 @@
+.wrapper{
+    margin-left: 10px;
+}
+.demo{
+    width: 100px;
+    height: 100px;
+    float: left;
+    background: #ccc;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.green {
+    background: green;
+}
+.red {
+    background: red;
+}
+.blue{
+    background: blue;
+}

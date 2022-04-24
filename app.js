@@ -1,33 +1,23 @@
 new Vue({
  el: '#app',
  data: {
-     counter : 0,
-     counterSecond:0
+     attachRed:false,
+     color:'green',
+     width:100,
+     bgColor:'gray'
  },
  computed:{
-     output:function (){
-         console.log('computed')
-         return this.counter > 5 ?'شمارنده بیشتر از عدد 5 است':'کمتر از عدد 5 است اون'
-     }
- },
- watch:{
-     counter: function (value){
-         var vm = this;
-         setTimeout(function (){
-             vm.counter = 0;
-         },2000)
-     }
- },
- methods:{
-     increase:function () {
-         this.counter++;
+     divClasses:function () {
+         return {
+             red:this.attachRed
+         }
      },
-     decrease:function () {
-         this.counter--;
-     },
-     result:function () {
-         console.log('method')
-         return this.counter > 5 ?'شمارنده بیشتر از عدد 5 است':'کمتر از عدد 5 است اون'
+     divStyles:function () {
+         return {
+             backgroundColor : this.bgColor,
+             width: this.width + 'px'
+         }
      }
  }
+
 })
