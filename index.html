@@ -1,47 +1,57 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="./scripts/vue.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-
+    <title>نبرد تن به تن</title>
+    <script src="scripts/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+<div id="nabard">
+    <section class="row">
+        <div class="small-6 columns">
+            <h1 class="text-center">شما</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;"
+                :style="{width:playerHealth + '%'}"
+                >{{playerHealth}}
+                </div>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <h1 class="text-center">رقیب</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;"
+                :style="{width:monsterHealth + '%'}"
+                >{{monsterHealth}}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row controls"  v-if="!gameIsRunning">
+        <div class="small-12 columns">
+            <button id="start-game" @click="startGame">شروع بازی جدید</button>
+        </div>
+    </section>
+    <section class="row controls" v-else>
+        <div class="small-12 columns">
+            <button id="attack" @click="attack">حمله</button>
+            <button id="special-attack" @click="specialAttack">حمله ویژه</button>
+            <button id="heal" @click="heal">کمک</button>
+            <button id="give-up" @click="giveUp">اتمام بازی</button>
+        </div>
+    </section>
+    <section class="row log">
+        <div class="small-12 columns">
+            <ul>
+                <li>
 
-    <div id="app">
-        <p v-if="show">شما میتوانید این پاراگراف را مشاهده کنید.</p>
-        <p v-else>شما نمی توانید این پاراگراف را مشاهده کنید</p>
-        <template v-if="show">
-            <h3>گروه بندی قالب</h3>
-            <p>این پاراگراف در یک گروه بندی قرار دارد</p>
-        </template>
-
-        <p v-show="show">آیا میتوانید ببینید؟</p>
-        <button type="button" @click="show = !show">تغییر وضعیت</button>
-        <hr>
-        <ul>
-            <li v-for="(food,i) in foods">
-                {{food}} -({{i}})
-            </li>
-        </ul>
-        <hr>
-        <ul>
-            <li v-for="(person,key,index) in persons">
-                {{key}}:{{person.name}}-({{person.age}})-{{person.website}}
-            </li>
-        </ul>
-        <hr>
-        <template v-for="(food,index) in foods">
-            <h3>{{food}}</h3><span>{{index}}</span>
-        </template>
-    </div>
-
-
-
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
 <script src="app.js"></script>
 </body>
 </html>
