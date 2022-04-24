@@ -11,26 +11,35 @@
 
 </head>
 <body>
-<div class="wrapper">
-    <div id="app">
-        <div class="app">
-            <!--        <button type="button" @click="changeLink">ویرایش لینک</button>-->
-            <!--        <a :href="link">{{linkTitle}}</a>-->
-        </div>
 
-        <div class="demo" :class="divClasses" @click="attachRed = !attachRed"></div>
-        <div class="demo"></div>
-        <div class="demo" :class="[color,{blue:attachRed}]"></div>
-        <input type="text" v-model="color">
+    <div id="app">
+        <p v-if="show">شما میتوانید این پاراگراف را مشاهده کنید.</p>
+        <p v-else>شما نمی توانید این پاراگراف را مشاهده کنید</p>
+        <template v-if="show">
+            <h3>گروه بندی قالب</h3>
+            <p>این پاراگراف در یک گروه بندی قرار دارد</p>
+        </template>
+
+        <p v-show="show">آیا میتوانید ببینید؟</p>
+        <button type="button" @click="show = !show">تغییر وضعیت</button>
         <hr>
-        <h1>Dynamic Styles</h1>
-        <div class="demo" :style="{backgroundColor: bgColor}"></div>
-        <div class="demo" :style="divStyles"></div>
-        <div class="demo" :style="[divStyles,{height:width + 'px'}]"></div>
-        <input type="text" v-model="bgColor">
-        <input type="text" v-model="width">
+        <ul>
+            <li v-for="(food,i) in foods">
+                {{food}} -({{i}})
+            </li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="(person,key,index) in persons">
+                {{key}}:{{person.name}}-({{person.age}})-{{person.website}}
+            </li>
+        </ul>
+        <hr>
+        <template v-for="(food,index) in foods">
+            <h3>{{food}}</h3><span>{{index}}</span>
+        </template>
     </div>
-</div>
+
 
 
 <script src="app.js"></script>

@@ -1,23 +1,13 @@
 new Vue({
  el: '#app',
  data: {
-     attachRed:false,
-     color:'green',
-     width:100,
-     bgColor:'gray'
+    show:true,
+     foods:['pizza','ghorme','kabab'],
+     persons:[
+         {name:'milad',age:33,website:'www.google.com'},
+         {name:'amir',age:28,website:'www.yahoo.com'}
+     ]
  },
- computed:{
-     divClasses:function () {
-         return {
-             red:this.attachRed
-         }
-     },
-     divStyles:function () {
-         return {
-             backgroundColor : this.bgColor,
-             width: this.width + 'px'
-         }
-     }
- }
+
 
 })
